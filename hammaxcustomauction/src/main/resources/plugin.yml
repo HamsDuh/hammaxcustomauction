@@ -1,0 +1,32 @@
+name: hammaxcustomauction
+version: '1.0-SNAPSHOT'
+main: hdh.hammaxcustomauction.Hammaxcustomauction
+api-version: '1.21'
+author: HamsDaHammond
+depend: [Vault]
+commands:
+  ah:
+    description: Open AH
+    usage: /ah
+  auktion:
+    description: Open AH
+    usage: /auktion
+  auction:
+    description: Open AH
+    usage: /auction
+  npcopenah:
+    description: Opens AH with local = true
+    usage: /npcopenah <player>
+  ahadmin:
+    description: Open AH Admin UI
+    usage: /ahadmin
+  aset:
+    description: alternative zu chateingabe
+    usage: /aset <value>
+permissions:
+  ahuse:
+    description: Erlaubt nutzen des AH
+    default: false
+  ahteam:
+    description: Lässt Team AH-UI öffnen
+    default: false

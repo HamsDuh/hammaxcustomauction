@@ -1,0 +1,15 @@
+auction:
+  maxPlayerAuctions: 9
+  minimumAuctionPrice: 500
+  minimumAuctionIncrease: 0.01
+  maximumAuctionIncrease: 2
+  minimumDeadline: 1
+  maximumDeadline: 31
+  durationPrice: 5
+  auctionPayoutMultiplyer: 0.99
+  createAuctionAllowed: false
+
+storage:
+  maxPlayerStorage: 18
+  timeOffset: 0
+  addItemAllowed: false
