@@ -254,7 +254,7 @@ public class AuctionUI {
 
     public static void addItemToStorageUI(Player player,boolean local, boolean isReal){
         AuctionUIHolder holder = new AuctionUIHolder(local, isReal);
-        Inventory inv = Bukkit.createInventory(holder, 45, "Items zu Storage");
+        Inventory inv = Bukkit.createInventory(holder, 54, "Items zu Storage");
 
         //UI Previous page
         ItemStack toPrevious = new ItemStack(Material.RED_WOOL);
@@ -270,7 +270,7 @@ public class AuctionUI {
         );
         toPrevious.setItemMeta(toPreviousMeta);
         int availableSlot = 9;
-        for(int i = 0; i < player.getInventory().getSize(); i++){
+        for(int i = 0; i < player.getInventory().getSize()&&availableSlot < 54; i++){
             if(player.getInventory().getItem(i) != null && player.getInventory().getItem(i).getType() != Material.AIR)
                 if(SettingsManager.allowedItemForStorage(player.getInventory().getItem(i))){
                     ItemStack addableItemUIElement =new ItemStack(player.getInventory().getItem(i));
@@ -1279,7 +1279,7 @@ public class AuctionUI {
                 bidConfirmMeta.setLore(Arrays.asList(
                         "§cACHTUNG! Das Geld wird direkt beim erstellen des Gebotes abgezogen",
                         "§eDein Eingabewert ist: " + "§c" + price,
-                        "§7Die auktion läuft noch: " + durationInDays[0] + "Tage, " + durationInDays[1] + "Stunden, " + durationInDays[2] + "Minuten",
+                        "§7Die Auktion läuft noch: " + durationInDays[0] + "Tage, " + durationInDays[1] + "Stunden, " + durationInDays[2] + "Minuten",
                         "-------------------------------------------------------------------------------",
                         "§7Momentanes Vermögen: " + Hammaxcustomauction.getInstance().getEconomyManager().getBalance(player.getUniqueId()),
                         "§7Vermögen nach Transaktion: " + (Hammaxcustomauction.getInstance().getEconomyManager().getBalance(player.getUniqueId()) - price)
@@ -1325,7 +1325,7 @@ public class AuctionUI {
             itemInfoMeta.setLore(Arrays.asList(
                     "§cACHTUNG! Das Geld wird direkt beim erstellen des Gebotes abgezogen",
                     "§7Dein Eingabewert ist: " + "§c" + price,
-                    "§7Die auktion läuft noch: " + durationInDays[0] + "Tage, " + durationInDays[1] + "Stunden, " + durationInDays[2] + "Minuten"
+                    "§7Die Auktion läuft noch: " + durationInDays[0] + "Tage, " + durationInDays[1] + "Stunden, " + durationInDays[2] + "Minuten"
             ));
             itemInfoMeta.getPersistentDataContainer().set(
                     new NamespacedKey(Hammaxcustomauction.getPlugin(Hammaxcustomauction.class), "ui_item"),
