@@ -65,14 +65,15 @@ public class AuctionManager {
         });
 
         //spätere regelmäßige ausführung
-        /*
+
         if (cyclesSinceCheck >= SettingsManager.getDBCheckTimer()){
             cyclesSinceCheck = 0;
+            Hammaxcustomauction.getInstance().getDBQueue().addToQueue(SQLSetup::closeConnection);
             //System.out.println("DBcheckDebug");
         }else {
             cyclesSinceCheck ++;
         }
-        */
+
 
     }
 
@@ -439,14 +440,10 @@ public class AuctionManager {
 
                     }
 
-
-
-
                 }
 
             connection.commit();
                 connection.setAutoCommit(true);
-
 
             }catch (Exception e){
                 try{
@@ -460,7 +457,7 @@ public class AuctionManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(),callback);
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -632,7 +629,7 @@ public class AuctionManager {
             }
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 

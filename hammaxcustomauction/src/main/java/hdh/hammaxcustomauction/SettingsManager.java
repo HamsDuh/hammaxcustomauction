@@ -73,7 +73,8 @@ public class SettingsManager {
                 Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE,
                 Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE,
                 Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE,
-                Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE
+                Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.PLAYER_HEAD
                 //mending
         };
         return allowedMaterials;
@@ -103,7 +104,8 @@ public class SettingsManager {
                 "Stille Schmiedevorlage",
                 "Augen Schmiedevorlage",
                 "Rippen Schmiedevorlage",
-                "Warthof Schmiedevorlage"
+                "Warthof Schmiedevorlage",
+                "Spieler Kopf"
         };
         return names;
     }
@@ -266,7 +268,7 @@ public class SettingsManager {
 
     public static double alterAuctionPayout(double given){return given * config.getDouble("auctionPayoutMultiplyer", auctionPayoutMultiplyer); }
 
-    public static int getDBCheckTimer(){return 3;}
+    public static int getDBCheckTimer(){return 5;}
 
 
     public static boolean problematicsMatch(ItemStack stack1, ItemStack stack2){

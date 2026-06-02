@@ -62,6 +62,7 @@ public class DBManager {
                 e.printStackTrace();
             }
         });
+        //SQLSetup.closeConnection();
     }
 
     //Bedingungen zum hinzufügen zu storage
@@ -131,7 +132,7 @@ public class DBManager {
             dateAdded BIGINT
             dateClaimed BIGINT
         */
-
+        //SQLSetup.closeConnection();
     }
 
     public void /*List<StorageItem>*/ getItemsFromStorage(String uuid, Consumer<List<StorageItem>> callback){
@@ -177,7 +178,7 @@ public class DBManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(),() -> callback.accept(items));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
     public void getItemFromID(long givenID, Consumer<StorageItem> callback){
@@ -230,7 +231,7 @@ public class DBManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(result));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -268,10 +269,11 @@ public class DBManager {
                         () -> callback.accept(finalSuccess)
                 );
 
-        }catch(Exception e){
+            }catch(Exception e){
                 e.printStackTrace();
-        }
-    });
+            }
+        });
+        //SQLSetup.closeConnection();
     }
 
 
@@ -301,6 +303,7 @@ public class DBManager {
                 e.printStackTrace();
             }
         });
+        //SQLSetup.closeConnection();
     }
 
 
@@ -364,7 +367,7 @@ public class DBManager {
             deadline BIGINT NOT NULL
             closed BOOLEAN DEFAULT 0
         */
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -454,7 +457,7 @@ public class DBManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(result));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -545,7 +548,7 @@ public class DBManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(auctions));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -636,7 +639,7 @@ public class DBManager {
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(auctions));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -664,6 +667,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             }
         });
     }
+    //SQLSetup.closeConnection();
 }
 
 
@@ -755,7 +759,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(auctions));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -867,7 +871,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
         } else if (!Hammaxcustomauction.getInstance().getEconomyManager().hasEnoughMoney(player.getUniqueId(),bidPrice)) {
             player.sendMessage("§cdu hast nicht genügend Geld");
         }
-
+        //SQLSetup.closeConnection();
     }
 
 
@@ -961,7 +965,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(auctions));
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
     public void getIgnoredAndOldBidsForPlayer(String givenUUID, boolean old, Consumer<List<Auction>> callback){
@@ -1070,6 +1074,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(auctions));
 
         });
+        //SQLSetup.closeConnection();
     }
 
 
@@ -1119,7 +1124,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
 
         });
 
-
+        //SQLSetup.closeConnection();
     }
 
     public void ignoreThisAuction(Player player, long auctionID){
@@ -1138,6 +1143,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             }
 
         });
+        //SQLSetup.closeConnection();
     }
 
 
@@ -1181,6 +1187,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             Bukkit.getScheduler().runTask(Hammaxcustomauction.getInstance(), () -> callback.accept(result));
 
         });
+        //SQLSetup.closeConnection();
     }
 
     public void getOpenReimbursements(UUID player, Consumer<List<HammaxPaymentLog>> callback){
@@ -1234,6 +1241,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
                             ");"
 
          */
+        //SQLSetup.closeConnection();
     }
 
     public void closeReimbursement(long paymentID){
@@ -1257,7 +1265,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
 
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
     public void createItemChangeLog(String playerUUID, long itemID, String type){
@@ -1299,7 +1307,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
                             ");"
             );
      */
-
+        //SQLSetup.closeConnection();
     }
 
     public void getPlayerAuctionLogsFromDB(String givenUUID, Consumer<HammaxPlayerLogs> callback){
@@ -1370,6 +1378,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             });
 
         });
+        //SQLSetup.closeConnection();
     }
 
     public void getPlayerpendingPayments(String givenUUID, Consumer<List<HammaxPaymentLog>> callback){
@@ -1408,7 +1417,7 @@ public void attemptAuctionCancelByPlayer(Player player, long auctionID, boolean 
             });
 
         });
-
+        //SQLSetup.closeConnection();
     }
 
 

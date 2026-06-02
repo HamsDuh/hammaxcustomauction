@@ -3,6 +3,7 @@ package hdh.hammaxcustomauction;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLSetup {
@@ -114,16 +115,45 @@ public class SQLSetup {
 
 */
 
-
-            System.out.println("[HammaxAuction] Tabellen geladen");
+            //System.out.println("[HammaxAuction] Tabellen geladen");
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
     public static Connection getConnection(){
+
+        if(connection == null){
+            connect();
+            //System.out.println("ConnectionNullOpen (Debug)");
+            return connection;
+        }
+
+        try{
+            if(!connection.isValid(0)){
+                connect();
+                //System.out.println("PlannedClosedConnectionOpen (Debug)");
+            }
+        } catch (SQLException e) {
+            connect();
+            //System.out.println("ClosedConnetionReopened (Debug)");
+        }
+
+        //connect();
         return connection;
     }
+
+    public static void closeConnection(){
+        try {
+            if (!connection.isClosed()) {
+                connection.close();
+                //System.out.println("connection closed (Debug)");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /*
 
         ItemStorage

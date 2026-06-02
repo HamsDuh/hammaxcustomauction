@@ -27,6 +27,7 @@ public final class Hammaxcustomauction extends JavaPlugin {
 
         SQLSetup.init(this);
         SQLSetup.setupSQL();
+        //SQLSetup.closeConnection();
 
         instance = this;
 
@@ -53,6 +54,7 @@ public final class Hammaxcustomauction extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         auctionManager.stop();
+        SQLSetup.closeConnection();
     }
 
     //21.11. 2h
@@ -107,6 +109,14 @@ public final class Hammaxcustomauction extends JavaPlugin {
     //29.4.  2h 15min                   //abgeholt              ende phase
     //1.5.   2h 30min                   //eingetragen           neue phase
     //1.5.   1h 45min                   //eingetragen
+
+
+
+
+
+    //1% gebüren bei erstellung setzen (erst am ende abziehen) -> weniger startpreis, weniger abgezogen
+    //köpfe
+
 
     //To do:
 
